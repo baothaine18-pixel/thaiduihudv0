@@ -4,7 +4,7 @@ local player = Players.LocalPlayer
 
 -- 🌌 INTRO GUI
 local gui = Instance.new("ScreenGui")
-gui.Name = "ThaiHudIntro"
+gui.Name = "ThaiHudIntro" -- ĐÃ SỬA
 gui.IgnoreGuiInset = true
 gui.ResetOnSpawn = false
 gui.Parent = player:WaitForChild("PlayerGui")
@@ -23,8 +23,8 @@ logo.AnchorPoint = Vector2.new(0.5,0.5)
 logo.Position = UDim2.new(0.5,0,0.5,0)
 logo.Size = UDim2.new(0,0,0,0) -- bắt đầu nhỏ rồi zoom
 logo.BackgroundTransparency = 1
+-- ASSET ID GỐC: http://www.roblox.com/asset/?id=77111304194141
 logo.Image = "http://www.roblox.com/asset/?id=77111304194141" 
-logo.ImageTransparency = 1
 
 -- Hiện logo (zoom + fade in)
 TweenService:Create(logo, TweenInfo.new(1.5, Enum.EasingStyle.Elastic, Enum.EasingDirection.Out), {
@@ -47,7 +47,7 @@ msg.AnchorPoint = Vector2.new(0.5,0)
 msg.Position = UDim2.new(0.5,0,0.75,0)
 msg.Size = UDim2.new(0,600,0,80)
 msg.BackgroundTransparency = 1
-msg.Text = "THÁI HUD" 
+msg.Text = "THÁI HUD" -- ĐÃ SỬA
 msg.TextColor3 = Color3.fromRGB(0,255,255)
 msg.Font = Enum.Font.GothamBlack
 msg.TextScaled = true
@@ -73,7 +73,7 @@ gui:Destroy()
 -- 🎛 MAIN UI BUTTON
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = game.CoreGui
-ScreenGui.Name = "ThaiHudMain" 
+ScreenGui.Name = "ThaiHudMain" -- ĐÃ THÊM TÊN
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 local ImageButton = Instance.new("ImageButton")
@@ -89,6 +89,8 @@ local UICorner = Instance.new("UICorner")
 UICorner.Parent = ImageButton
 UICorner.CornerRadius = UDim.new(1,10)
 
+-- Nút này dùng để MỞ/ĐÓNG UI chính (theo logic gốc của script)
+-- Script gốc dùng phím END để toggle
 ImageButton.MouseButton1Down:Connect(function()
     game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.End,false,game)
 end)
@@ -96,10 +98,11 @@ end)
 ------------------------------------------------------------
 -- 📦 LOAD FLUENT
 repeat task.wait() until game:IsLoaded()
+-- Đây là nơi tải thư viện UI cần thiết. Nếu bước này lỗi, UI sẽ không hiện.
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title="Thái Hud", 
+    Title="Thái Hud", -- ĐÃ SỬA
     SubTitle="Tổng Hợp Script",
     TabWidth=157,
     Size=UDim2.fromOffset(450,300),
@@ -112,87 +115,82 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
     Main0=Window:AddTab({Title="Thông Tin"}),
     Main1=Window:AddTab({Title="Blox Fruits"}),
-    Main2=Window:AddTab({Title="Plants vs Brainrots"}), -- ĐÃ ĐỔI TÊN TAB
-    Main3=Window:AddTab({Title="99 Nights In The Forest"}),
-    Main4=Window:AddTab({Title="Cướp 1 Brainrots"}) 
+    Main2=Window:AddTab({Title="Grow A Garden"}),
+    Main3=Window:AddTab({Title="99 Nights In The Forest"})
 }
 
 -- Tab 0: Thông Tin
 Tabs.Main0:AddButton({
-    Title="Script By", 
-    Description="THAIDUI", 
+    Title="Script By", -- ĐÃ SỬA
+    Description="THAIDUI", -- ĐÃ SỬA
     Callback=function()
         setclipboard("THÁI HUD - SCRIPT LOADER")
     end
 })
 
--- ===============================================
--- Tab 1: Blox Fruits (CẬP NHẬT HOÀN TOÀN)
--- ===============================================
+-- Tab 1: Blox Fruits (GIỮ NGUYÊN)
 Tabs.Main1:AddButton({
-    Title="Gravity Hub (Main)",
+    Title="Redz Hub",
     Callback=function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-GravityHub/BloxFruit/refs/heads/main/Main.lua"))()
+        local Settings={JoinTeam="Pirates",Translator=true}
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))(Settings)
     end
 })
 Tabs.Main1:AddButton({
-    Title="BlueX Hub (BF)",
-    Callback=function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))()
-    end
-})
-Tabs.Main1:AddButton({
-    Title="Neva Hub (BF)",
-    Callback=function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/NevaHubDEV/Loader/main/NevaBF.lua"))()
-    end
-})
-Tabs.Main1:AddButton({
-    Title="Void Hub (BF)",
-    Callback=function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/VoidMasterScript/VoidHub/main/Loader.lua"))()
-    end
-})
-Tabs.Main1:AddButton({
-    Title="Fusion Hub (BF)",
-    Callback=function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/FusionHubDev/Fusion/main/BloxFruit.lua"))()
-    end
-})
-Tabs.Main1:AddButton({
-    Title="Master Hub (BF)",
-    Callback=function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/KiddoHiru/BloxFruits/main/MasterHub.lua"))()
-    end
-})
-Tabs.Main1:AddButton({
-    Title="W-Azure (Paid/Free)",
+    Title="w-azure Hub",
     Callback=function()
         loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/85e904ae1ff30824c1aa007fc7324f8f.lua"))()
     end
 })
 Tabs.Main1:AddButton({
-    Title="Sakura Hub (BF)",
+    Title="Fix Lag",
     Callback=function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/SakuraScripts/Loader/main/SakuraBF.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/TurboLite/Script/main/FixLag.lua"))()
     end
 })
 Tabs.Main1:AddButton({
-    Title="Kaitun Script",
+    Title="Min Hub",
     Callback=function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/shinichi-dz/phucshinsayhi/refs/heads/main/KaitunBloxFruit.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/Min/refs/heads/main/MinXt2Eng"))()
     end
 })
 Tabs.Main1:AddButton({
-    Title="Quantum Onyx",
+    Title="Speed Hub X",
     Callback=function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/flazhy/QuantumOnyx/refs/heads/main/QuantumOnyx.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
     end
 })
-
--- ==========================================================
--- Tab 2: Plants vs Brainrots (THÊM SCRIPT MỚI VÀO)
--- ==========================================================
+Tabs.Main1:AddButton({
+    Title="Than Hub",
+    Callback=function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()
+    end
+})
+Tabs.Main1:AddButton({
+    Title="BlueX HUb",
+    Callback=function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))()
+    end
+})
+Tabs.Main1:AddButton({
+    Title="Tsoul Hub",
+    Callback=function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Tsuo7/TsuoHub/main/Tsuoscripts"))()
+    end
+})
+Tabs.Main1:AddButton({
+    Title="Volcano Hub V3",
+    Callback=function()
+        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/indexeduu/BF-NewVer/refs/heads/main/V3New.lua"))()
+    end
+})
+Tabs.Main1:AddButton({
+    Title="HOHO Hub",
+    Callback=function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
+    end
+})
+-- Tab 2: Grow A Garden (GIỮ NGUYÊN)
 Tabs.Main2:AddButton({
     Title="Nat Hub",
     Callback=function()
@@ -217,27 +215,8 @@ Tabs.Main2:AddButton({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))()
     end
 })
--- Script mới từ danh sách của bạn
-Tabs.Main2:AddButton({
-    Title="Mega Farm (PvB)",
-    Callback=function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/test/Pvb/main/Farm.lua"))()
-    end
-})
-Tabs.Main2:AddButton({
-    Title="PvB Cheat (Old)",
-    Callback=function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/pTfC8t7m"))()
-    end
-})
-Tabs.Main2:AddButton({
-    Title="Zetex Hub (PvB)",
-    Callback=function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Korepi/roblox/main/zetex"))()
-    end
-})
 
--- Tab 3: 99 Nights In The Forest 
+-- Tab 3: 99 Nights In The Forest (GIỮ NGUYÊN)
 Tabs.Main3:AddButton({
     Title="Voidware Hub",
     Callback=function()
@@ -254,33 +233,5 @@ Tabs.Main3:AddButton({
     Title="Pulse HUb",
     Callback=function()
        loadstring(game:HttpGet("https://raw.githubusercontent.com/Chavels123/Loader/refs/heads/main/loader.lua"))()
-    end
-})
-
--- ===============================================
--- Tab 4: Cướp 1 Brainrots (CẬP NHẬT HOÀN TOÀN)
--- ===============================================
-Tabs.Main4:AddButton({
-    Title="Luin Lớn (Loader)",
-    Callback=function()
-        loadstring(game:HttpGet("http://luminon.top/loader.lua"))()
-    end
-})
-Tabs.Main4:AddButton({
-    Title="Luin Nhỏ (Mini)",
-    Callback=function()
-        loadstring(game:HttpGet("http://luminon.top/mini.lua"))()
-    end
-})
-Tabs.Main4:AddButton({
-    Title="Theft Hub (Loader)",
-    Callback=function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/TheftHub/Loader/main/Loader.lua"))()
-    end
-})
-Tabs.Main4:AddButton({
-    Title="Vietnam Hub (C1B)",
-    Callback=function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/replit8173/VietnamHub/refs/heads/main/VietnamseHub.lua"))()
     end
 })
