@@ -186,6 +186,24 @@ Tabs.Main1:AddButton({
         loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
     end
 })
+Tabs.Main1:AddButton({
+    Title="Gavity Hud",
+    Callback=function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-GravityHub/BloxFruit/refs/heads/main/Main.lua"))
+    end
+})
+Tabs.Main1:AddButton({
+    Title="Quantum",
+    Callback=function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/flazhy/QuantumOnyx/refs/heads/main/QuantumOnyx.lua"))()
+    end
+})
+Tabs.Main1:AddButton({
+    Title="Hop",
+    Callback=function()
+        loadstring(game:HttpGet("https://github.com/WhiteX1208/Scripts/blob/main/HopScript.luau?raw=true"))()
+    end
+})
 -- Tab 2: Grow A Garden
 Tabs.Main2:AddButton({
     Title="Nat Hub",
@@ -229,5 +247,23 @@ Tabs.Main3:AddButton({
     Title="Pulse HUb",
     Callback=function()
        loadstring(game:HttpGet("https://raw.githubusercontent.com/Chavels123/Loader/refs/heads/main/loader.lua"))()
+    end
+})
+Tabs.Main3:AddButton({
+    Title="Speed Hud X",
+    Callback=function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+    end
+})
+Tabs.Main3:AddButton({
+    Title="mini",
+    Callback=function()
+        loadstring(game:HttpGet("http://luminon.top/mini.lua"))()
+    end
+})
+Tabs.Main3:AddButton({
+    Title="viet nam hud",
+    Callback=function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/replit8173/VietnamHub/refs/heads/main/VietnamseHub.lua"))()
     end
 })
