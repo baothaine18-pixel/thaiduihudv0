@@ -113,8 +113,8 @@ local Tabs = {
     Main1=Window:AddTab({Title="Blox Fruits"}),
     Main2=Window:AddTab({Title="Grow A Garden"}),
     Main3=Window:AddTab({Title="99 Nights In The Forest"})
-    Main4=Window:AddTad({Title="plans vs brainrot"})
-    Main5=Window:AddTad({Title="Cuop 1 brainrots"})
+    Main4=Window:AddTad({Title="plans vs brainrots"})
+    Main5=Window:AddTad({Title="cuop 1 brainrots"})
 }
 
 -- Tab 0: Thông Tin
