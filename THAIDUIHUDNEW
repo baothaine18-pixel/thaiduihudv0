@@ -82,7 +82,7 @@ ImageButton.BorderSizePixel = 0
 ImageButton.Position = UDim2.new(0.1,0,0.15,0)
 ImageButton.Size = UDim2.new(0,40,0,40)
 ImageButton.Draggable = true
-ImageButton.Image = "http://www.roblox.com/asset/?id=77111304194141"
+ImageButton.Image = "https://create.roblox.com/store/asset/18659849417/anhmeomeme17"
 
 local UICorner = Instance.new("UICorner")
 UICorner.Parent = ImageButton
@@ -103,7 +103,7 @@ local Window = Fluent:CreateWindow({
     TabWidth=157,
     Size=UDim2.fromOffset(450,300),
     Acrylic=true,
-    Theme="Dark",
+    Theme="transparent",
     MinimizeKey=Enum.KeyCode.End
 })
 
@@ -113,6 +113,8 @@ local Tabs = {
     Main1=Window:AddTab({Title="Blox Fruits"}),
     Main2=Window:AddTab({Title="Grow A Garden"}),
     Main3=Window:AddTab({Title="99 Nights In The Forest"})
+    Main4=Window:AddTad({Title="plans vs brainrot"})
+    Main5=Window:AddTad({Title="Cuop 1 brainrots"})
 }
 
 -- Tab 0: Thông Tin
